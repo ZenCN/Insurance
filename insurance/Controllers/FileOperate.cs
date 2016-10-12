@@ -184,11 +184,11 @@ namespace insurance.Controllers
         private ICellStyle SetCellStyle(ISheet sheet)
         {
             ICellStyle style = sheet.Workbook.CreateCellStyle();
-            style.Alignment = HorizontalAlignment.CENTER;//水平对齐居中
-            style.BorderBottom = BorderStyle.THIN; //边框是黑色的
-            style.BorderLeft = BorderStyle.THIN;
-            style.BorderRight = BorderStyle.THIN;
-            style.BorderTop = BorderStyle.THIN;
+            style.Alignment = HorizontalAlignment.Center;//水平对齐居中
+            style.BorderBottom = BorderStyle.Thin; //边框是黑色的
+            style.BorderLeft = BorderStyle.Thin;
+            style.BorderRight = BorderStyle.Thin;
+            style.BorderTop = BorderStyle.Thin;
             return style;
         }
 
