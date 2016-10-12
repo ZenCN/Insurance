@@ -1,0 +1,114 @@
+﻿<div class="container-fluid b-space">
+    <div class="row" style="margin-top: 10px">
+        <div class="col-xs-3 col-xs-offset-2">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon">用户名</span>
+                <input type="text" class="form-control" ng-model="users.search.condition.name"/>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon">岗位</span>
+                <select class="form-control" ng-model="users.search.condition.role">
+                    <option value="">全部</option>
+                    <option value="报案">报案</option>
+                    <option value="初录">初录</option>
+                    <option value="理算">理算</option>
+                    <option value="审核">审核</option>
+                    <option value="审批">审批</option>
+                    <option value="管理员">管理员</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <input type="button" style="max-width: 70px;" class="form-control btn-primary btn-sm" ng-click="users.search.filter()" value="搜索">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="padding: 7px 15px;">
+                    <div class="input-group input-group-sm">
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="users.action.create()">
+                            <i class="fa fa-plus"></i>
+                            新增
+                        </button>
+                        <button type="button" class="btn btn-success btn-sm" ng-click="users.action.modify()">
+                            <i class="fa fa-pencil-square-o"></i>
+                            修改
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="users.action.drop()">
+                            <i class="fa fa-trash-o"></i>
+                            删除
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline no-wrap" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
+                                        <thead>
+                                        <tr role="row">
+                                            <th rowspan="1" colspan="1"></th>
+                                            <th rowspan="1" colspan="1">序号</th>
+                                            <th rowspan="1" colspan="1">用户名</th>
+                                            <th rowspan="1" colspan="1">密码</th>
+                                            <th rowspan="1" colspan="1">岗位</th>
+                                            <th rowspan="1" colspan="1">上次登录时间</th>
+                                        </tr>
+                                        </thead><!--ng-class="{even: $even, odd: $odd}"-->
+                                        <tbody>
+                                        <tr ng-repeat="user in users.search.result" ng-click="users.search.select(user)">
+                                            <td>
+                                                <input type="radio" name="check" class="form-control select" ng-checked="user.checked" ng-model="user.checked"/>
+                                            </td>
+                                            <td>
+                                                {{$index + 1}}
+                                            </td>
+                                            <td>
+                                                {{user.name}}
+                                            </td>
+                                            <td>
+                                                {{user.password}}
+                                            </td>
+                                            <td>
+                                                {{user.role}}
+                                            </td>
+                                            <td>
+                                                {{user.last_login_time}}
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-offset-6">
+                                    <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+                                        <ul class="pagination" style="margin: 0;">
+                                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
+                                                <a href="javascript:void(0)">上一页</a>
+                                            </li>
+                                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+                                                <a href="javascript:void(0)">1</a>
+                                            </li>
+                                            <li class="paginate_button next disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next">
+                                                <a href="javascript:void(0)">下一页</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+</div>
+<div ng-include="'templates/update_password.html'"></div>

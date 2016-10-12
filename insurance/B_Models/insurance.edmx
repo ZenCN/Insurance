@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="B_Models.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="B_ModelsStoreContainer">
+          <EntitySet Name="cases" EntityType="B_Models.Store.cases" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="field_range" EntityType="B_Models.Store.field_range" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="investigation" EntityType="B_Models.Store.investigation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="lgn" EntityType="B_Models.Store.lgn" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="modify_color" EntityType="B_Models.Store.modify_color" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="cases">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="bigint" Nullable="false" />
+          <Property Name="current_state" Type="int" />
+          <Property Name="is_reported" Type="int" />
+          <Property Name="is_submit" Type="int" />
+          <Property Name="is_investigate" Type="int" />
+          <Property Name="is_data_holonomic" Type="int" />
+          <Property Name="data_remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="is_informed" Type="int" />
+          <Property Name="is_diffcult" Type="int" />
+          <Property Name="diffcult_reason" Type="nvarchar" MaxLength="100" />
+          <Property Name="report_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="report_time" Type="datetime" />
+          <Property Name="report_phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="application_id" Type="nvarchar" MaxLength="120" />
+          <Property Name="policy_id" Type="nvarchar" MaxLength="120" />
+          <Property Name="policy_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="policy_holder" Type="nvarchar" MaxLength="50" />
+          <Property Name="insurant_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="insurant_sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="insurant_habitation" Type="nvarchar" MaxLength="100" />
+          <Property Name="insurant_idcard" Type="nvarchar" MaxLength="50" />
+          <Property Name="insurant_age" Type="int" />
+          <Property Name="insurant_phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="accident_time" Type="datetime" />
+          <Property Name="accident_reason" Type="nvarchar" MaxLength="500" />
+          <Property Name="accident_area" Type="nvarchar" MaxLength="100" />
+          <Property Name="accident_address" Type="nvarchar" MaxLength="100" />
+          <Property Name="accident_details" Type="nvarchar" MaxLength="50" />
+          <Property Name="hospital_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="hospital_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="hospital_days" Type="int" />
+          <Property Name="hospital_is_two_public" Type="int" />
+          <Property Name="transfer_bank" Type="nvarchar" MaxLength="50" />
+          <Property Name="transfer_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="transfer_account" Type="nvarchar" MaxLength="50" />
+          <Property Name="compensation_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="compensation_amount" Type="float" />
+          <Property Name="admissibility_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="subtract_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="subtract_amount" Type="float" />
+          <Property Name="invoice_amount" Type="float" />
+          <Property Name="deductible_amount" Type="float" />
+          <Property Name="adjustment_remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="is_need_communication" Type="int" />
+          <Property Name="communication_content" Type="nvarchar" MaxLength="100" />
+          <Property Name="communication_result" Type="int" />
+          <Property Name="check_result" Type="nvarchar" MaxLength="50" />
+          <Property Name="check_opinion" Type="nvarchar" MaxLength="50" />
+          <Property Name="check_subtract_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="check_subtract_amount" Type="float" />
+          <Property Name="check_subtract_content" Type="nvarchar" MaxLength="100" />
+          <Property Name="rejected_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="rejected_nature" Type="nvarchar" MaxLength="50" />
+          <Property Name="rejected_amount" Type="float" />
+          <Property Name="rejected_reason" Type="nvarchar" MaxLength="100" />
+          <Property Name="approval_result" Type="nvarchar" MaxLength="50" />
+          <Property Name="report_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="report_submit_time" Type="datetime" />
+          <Property Name="record_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="record_submit_time" Type="datetime" />
+          <Property Name="adjust_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="adjust_submit_time" Type="datetime" />
+          <Property Name="check_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="check_submit_time" Type="datetime" />
+          <Property Name="approval_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="approval_submit_time" Type="datetime" />
+          <Property Name="allowance_amount" Type="float" />
+          <Property Name="case_source" Type="nvarchar" MaxLength="50" />
+          <Property Name="expire_date" Type="datetime" />
+          <Property Name="case_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="case_type_remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="subtract_type_remark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="field_range">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="field_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="field_value" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="investigation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="investigation_cause" Type="nvarchar" MaxLength="50" />
+          <Property Name="investigation_area" Type="nvarchar" MaxLength="50" />
+          <Property Name="contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="contact_phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="survey_points" Type="nvarchar" MaxLength="100" />
+          <Property Name="approval_result" Type="nvarchar" MaxLength="50" />
+          <Property Name="approval_remark" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="lgn">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="authority_level" Type="int" Nullable="false" />
+          <Property Name="last_login_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="modify_color">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="int" Nullable="false" />
+          <Property Name="state" Type="int" />
+          <Property Name="field_name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="B_Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="insurance_entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cases" EntityType="B_Models.cases" />
+          <EntitySet Name="field_range" EntityType="B_Models.field_range" />
+          <EntitySet Name="investigation" EntityType="B_Models.investigation" />
+          <EntitySet Name="lgn" EntityType="B_Models.lgn" />
+          <EntitySet Name="modify_color" EntityType="B_Models.modify_color" />
+        </EntityContainer>
+        <EntityType Name="cases">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int64" Nullable="false" />
+          <Property Name="current_state" Type="Int32" />
+          <Property Name="is_reported" Type="Int32" />
+          <Property Name="is_submit" Type="Int32" />
+          <Property Name="is_investigate" Type="Int32" />
+          <Property Name="is_data_holonomic" Type="Int32" />
+          <Property Name="data_remark" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="is_informed" Type="Int32" />
+          <Property Name="is_diffcult" Type="Int32" />
+          <Property Name="diffcult_reason" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="report_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="report_time" Type="DateTime" />
+          <Property Name="report_phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="application_id" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="policy_id" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="policy_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="policy_holder" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="insurant_name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="insurant_sex" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="insurant_habitation" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="insurant_idcard" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="insurant_age" Type="Int32" />
+          <Property Name="insurant_phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="accident_time" Type="DateTime" />
+          <Property Name="accident_reason" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="accident_area" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="accident_address" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="accident_details" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="hospital_name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="hospital_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="hospital_days" Type="Int32" />
+          <Property Name="hospital_is_two_public" Type="Int32" />
+          <Property Name="transfer_bank" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="transfer_name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="transfer_account" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="compensation_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="compensation_amount" Type="Double" />
+          <Property Name="admissibility_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="subtract_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="subtract_amount" Type="Double" />
+          <Property Name="invoice_amount" Type="Double" />
+          <Property Name="deductible_amount" Type="Double" />
+          <Property Name="adjustment_remark" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="is_need_communication" Type="Int32" />
+          <Property Name="communication_content" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="communication_result" Type="Int32" />
+          <Property Name="check_result" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="check_opinion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="check_subtract_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="check_subtract_amount" Type="Double" />
+          <Property Name="check_subtract_content" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="rejected_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="rejected_nature" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="rejected_amount" Type="Double" />
+          <Property Name="rejected_reason" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="approval_result" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="report_user" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="report_submit_time" Type="DateTime" />
+          <Property Name="record_user" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="record_submit_time" Type="DateTime" />
+          <Property Name="adjust_user" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="adjust_submit_time" Type="DateTime" />
+          <Property Name="check_user" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="check_submit_time" Type="DateTime" />
+          <Property Name="approval_user" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="approval_submit_time" Type="DateTime" />
+          <Property Name="allowance_amount" Type="Double" />
+          <Property Name="case_source" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="expire_date" Type="DateTime" />
+          <Property Name="case_type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="case_type_remark" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="subtract_type_remark" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="field_range">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="field_name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="field_value" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="investigation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="investigation_cause" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="investigation_area" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="contact" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="contact_phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="survey_points" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="approval_result" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="approval_remark" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="lgn">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="authority_level" Type="Int32" Nullable="false" />
+          <Property Name="last_login_time" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="modify_color">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="field_name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="B_ModelsStoreContainer" CdmEntityContainer="insurance_entities">
+          <EntitySetMapping Name="cases">
+            <EntityTypeMapping TypeName="B_Models.cases">
+              <MappingFragment StoreEntitySet="cases">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="current_state" ColumnName="current_state" />
+                <ScalarProperty Name="is_reported" ColumnName="is_reported" />
+                <ScalarProperty Name="is_submit" ColumnName="is_submit" />
+                <ScalarProperty Name="is_investigate" ColumnName="is_investigate" />
+                <ScalarProperty Name="is_data_holonomic" ColumnName="is_data_holonomic" />
+                <ScalarProperty Name="data_remark" ColumnName="data_remark" />
+                <ScalarProperty Name="is_informed" ColumnName="is_informed" />
+                <ScalarProperty Name="is_diffcult" ColumnName="is_diffcult" />
+                <ScalarProperty Name="diffcult_reason" ColumnName="diffcult_reason" />
+                <ScalarProperty Name="report_type" ColumnName="report_type" />
+                <ScalarProperty Name="report_time" ColumnName="report_time" />
+                <ScalarProperty Name="report_phone" ColumnName="report_phone" />
+                <ScalarProperty Name="application_id" ColumnName="application_id" />
+                <ScalarProperty Name="policy_id" ColumnName="policy_id" />
+                <ScalarProperty Name="policy_type" ColumnName="policy_type" />
+                <ScalarProperty Name="policy_holder" ColumnName="policy_holder" />
+                <ScalarProperty Name="insurant_name" ColumnName="insurant_name" />
+                <ScalarProperty Name="insurant_sex" ColumnName="insurant_sex" />
+                <ScalarProperty Name="insurant_habitation" ColumnName="insurant_habitation" />
+                <ScalarProperty Name="insurant_idcard" ColumnName="insurant_idcard" />
+                <ScalarProperty Name="insurant_age" ColumnName="insurant_age" />
+                <ScalarProperty Name="insurant_phone" ColumnName="insurant_phone" />
+                <ScalarProperty Name="accident_time" ColumnName="accident_time" />
+                <ScalarProperty Name="accident_reason" ColumnName="accident_reason" />
+                <ScalarProperty Name="accident_area" ColumnName="accident_area" />
+                <ScalarProperty Name="accident_address" ColumnName="accident_address" />
+                <ScalarProperty Name="accident_details" ColumnName="accident_details" />
+                <ScalarProperty Name="hospital_name" ColumnName="hospital_name" />
+                <ScalarProperty Name="hospital_type" ColumnName="hospital_type" />
+                <ScalarProperty Name="hospital_days" ColumnName="hospital_days" />
+                <ScalarProperty Name="hospital_is_two_public" ColumnName="hospital_is_two_public" />
+                <ScalarProperty Name="transfer_bank" ColumnName="transfer_bank" />
+                <ScalarProperty Name="transfer_name" ColumnName="transfer_name" />
+                <ScalarProperty Name="transfer_account" ColumnName="transfer_account" />
+                <ScalarProperty Name="compensation_type" ColumnName="compensation_type" />
+                <ScalarProperty Name="compensation_amount" ColumnName="compensation_amount" />
+                <ScalarProperty Name="admissibility_type" ColumnName="admissibility_type" />
+                <ScalarProperty Name="subtract_type" ColumnName="subtract_type" />
+                <ScalarProperty Name="subtract_amount" ColumnName="subtract_amount" />
+                <ScalarProperty Name="invoice_amount" ColumnName="invoice_amount" />
+                <ScalarProperty Name="deductible_amount" ColumnName="deductible_amount" />
+                <ScalarProperty Name="adjustment_remark" ColumnName="adjustment_remark" />
+                <ScalarProperty Name="is_need_communication" ColumnName="is_need_communication" />
+                <ScalarProperty Name="communication_content" ColumnName="communication_content" />
+                <ScalarProperty Name="communication_result" ColumnName="communication_result" />
+                <ScalarProperty Name="check_result" ColumnName="check_result" />
+                <ScalarProperty Name="check_opinion" ColumnName="check_opinion" />
+                <ScalarProperty Name="check_subtract_type" ColumnName="check_subtract_type" />
+                <ScalarProperty Name="check_subtract_amount" ColumnName="check_subtract_amount" />
+                <ScalarProperty Name="check_subtract_content" ColumnName="check_subtract_content" />
+                <ScalarProperty Name="rejected_type" ColumnName="rejected_type" />
+                <ScalarProperty Name="rejected_nature" ColumnName="rejected_nature" />
+                <ScalarProperty Name="rejected_amount" ColumnName="rejected_amount" />
+                <ScalarProperty Name="rejected_reason" ColumnName="rejected_reason" />
+                <ScalarProperty Name="approval_result" ColumnName="approval_result" />
+                <ScalarProperty Name="report_user" ColumnName="report_user" />
+                <ScalarProperty Name="report_submit_time" ColumnName="report_submit_time" />
+                <ScalarProperty Name="record_user" ColumnName="record_user" />
+                <ScalarProperty Name="record_submit_time" ColumnName="record_submit_time" />
+                <ScalarProperty Name="adjust_user" ColumnName="adjust_user" />
+                <ScalarProperty Name="adjust_submit_time" ColumnName="adjust_submit_time" />
+                <ScalarProperty Name="check_user" ColumnName="check_user" />
+                <ScalarProperty Name="check_submit_time" ColumnName="check_submit_time" />
+                <ScalarProperty Name="approval_user" ColumnName="approval_user" />
+                <ScalarProperty Name="approval_submit_time" ColumnName="approval_submit_time" />
+                <ScalarProperty Name="allowance_amount" ColumnName="allowance_amount" />
+                <ScalarProperty Name="case_source" ColumnName="case_source" />
+                <ScalarProperty Name="expire_date" ColumnName="expire_date" />
+                <ScalarProperty Name="case_type" ColumnName="case_type" />
+                <ScalarProperty Name="case_type_remark" ColumnName="case_type_remark" />
+                <ScalarProperty Name="subtract_type_remark" ColumnName="subtract_type_remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="field_range">
+            <EntityTypeMapping TypeName="B_Models.field_range">
+              <MappingFragment StoreEntitySet="field_range">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="field_name" ColumnName="field_name" />
+                <ScalarProperty Name="field_value" ColumnName="field_value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="investigation">
+            <EntityTypeMapping TypeName="B_Models.investigation">
+              <MappingFragment StoreEntitySet="investigation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="investigation_cause" ColumnName="investigation_cause" />
+                <ScalarProperty Name="investigation_area" ColumnName="investigation_area" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="contact_phone" ColumnName="contact_phone" />
+                <ScalarProperty Name="survey_points" ColumnName="survey_points" />
+                <ScalarProperty Name="approval_result" ColumnName="approval_result" />
+                <ScalarProperty Name="approval_remark" ColumnName="approval_remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lgn">
+            <EntityTypeMapping TypeName="B_Models.lgn">
+              <MappingFragment StoreEntitySet="lgn">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="authority_level" ColumnName="authority_level" />
+                <ScalarProperty Name="last_login_time" ColumnName="last_login_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modify_color">
+            <EntityTypeMapping TypeName="B_Models.modify_color">
+              <MappingFragment StoreEntitySet="modify_color">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="field_name" ColumnName="field_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="insurance" ZoomLevel="58">
+        <EntityTypeShape EntityType="B_Models.cases" Width="1.5" PointX="0.75" PointY="0.75" Height="14.486227213541666" IsExpanded="true" />
+        <EntityTypeShape EntityType="B_Models.field_range" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5506396484374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="B_Models.investigation" Width="1.5" PointX="2.75" PointY="3.75" Height="2.6594042968749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="B_Models.lgn" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9202278645833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="B_Models.modify_color" Width="1.5" PointX="4.75" PointY="3.75" Height="1.7354337565104174" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

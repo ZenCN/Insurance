@@ -1,0 +1,121 @@
+﻿<div class="row" ng-include="'templates/policy/report_info.html'">
+    
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">被保险人</span>
+            <input type="text" class="form-control" ng-require ng-model="_case.insurant_name"/>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">案件来源</span>
+            <select class="form-control" ng-model="_case.case_source">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.case_source track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">生效时间</span>
+            <input type="text" ng-datepicker ng-require class="form-control" ng-model="_case.expire_date">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">出险人电话</span>
+            <input type="text" class="form-control" ng-regexp="phone" ng-model="_case.insurant_phone">
+        </div>
+    </div>
+    <div class="col-xs-5">
+        <div class="input-group">
+            <span class="input-group-addon">身份证号码</span>
+            <input type="text" class="form-control" ng-require ng-regexp="idcard" ng-model="_case.insurant_idcard">
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="input-group">
+            <span class="input-group-addon">投保人</span>
+            <input type="text" class="form-control" ng-model="_case.policy_holder">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">出险时间</span>
+            <input type="text" ng-datepicker ng-require class="form-control" ng-model="_case.accident_time">
+        </div>
+    </div>
+    <div class="col-xs-8">
+        <div class="input-group">
+            <span class="input-group-addon">出险地点</span>
+            <input type="text" class="form-control" ng-model="_case.accident_address">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">出险原因</span>
+            <select class="form-control" ng-model="_case.accident_reason">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.accident_reason track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-8">
+        <div class="input-group">
+            <span class="input-group-addon">出险人居住地</span>
+            <input type="text" class="form-control" ng-model="_case.insurant_habitation"/>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">受理类型</span>
+            <select class="form-control" ng-model="_case.admissibility_type">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.admissibility_type track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">理赔类型</span>
+            <select class="form-control" ng-model="_case.compensation_type">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.compensation_type track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">转账银行</span>
+            <input type="text" class="form-control" ng-model="_case.transfer_bank"/>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="input-group">
+            <span class="input-group-addon">账户名</span>
+            <input type="text" class="form-control" ng-model="_case.transfer_name">
+        </div>
+    </div>
+    <div class="col-xs-5">
+        <div class="input-group">
+            <span class="input-group-addon">转账账号</span>
+            <input type="text" class="form-control" ng-regexp="bank_card" ng-model="_case.transfer_account">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 pull-right">
+        <div class="input-group">
+            <span class="input-group-addon">初录经办人</span>
+            <label class="form-control" disabled>{{_case.record_user}}</label>
+            <span class="input-group-addon">经办时间</span>
+            <label class="form-control" disabled>{{_case.record_submit_time}}</label>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+﻿<div class="row" ng-include="'templates/policy/report_info.html'">
+    
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">就诊医院</span>
+            <input type="text" class="form-control" ng-model="_case.hospital_name">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">被保险人</span>
+            <input type="text" class="form-control" ng-model="_case.insurant_name">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">出险原因</span>
+            <select class="form-control" ng-model="_case.accident_reason">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.accident_reason track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">发票金额</span>
+            <input type="text" class="form-control" ng-model="_case.invoice_amount">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">核减金额</span>
+            <input type="text" class="form-control" ng-model="_case.subtract_amount">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">理算金额</span>
+            <input type="text" class="form-control" ng-model="_case.compensation_amount">
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-8">
+        <div class="input-group">
+            <span class="input-group-addon">审批结果</span>
+            <div class="checkbox" style="margin: 0; padding: 7px 0 10px 20px; height: 34px; border: 1px solid #ccc; border-radius: 5px;">
+                <label>
+                    <input type="radio" name="approval_result" ng-model="_case.approval_result" value="1"/> 审批同意
+                </label>
+                <label>
+                    <input type="radio" name="approval_result" ng-model="_case.approval_result" value="0"/> 同意拒赔
+                </label>
+                <label>
+                    <input type="radio" name="approval_result" ng-model="_case.approval_result" value="2"/> 核减
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!--同意拒赔-->
+    <div class="col-xs-4" ng-show="_case.approval_result <= 0">
+        <div class="input-group">
+            <span class="input-group-addon">拒赔类型</span>
+            <select class="form-control" ng-model="_case.rejected_type">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.rejected_type track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-4" ng-show="_case.approval_result <= 0">
+        <div class="input-group">
+            <span class="input-group-addon">拒赔性质</span>
+            <select class="form-control" ng-model="_case.rejected_nature">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.rejected_nature track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-4" ng-show="_case.approval_result <= 0">
+        <div class="input-group">
+            <span class="input-group-addon">拒赔原因</span>
+            <select class="form-control" ng-model="_case.rejected_reason">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.rejected_reason track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-4" ng-show="_case.approval_result <= 0">
+        <div class="input-group">
+            <span class="input-group-addon">拒赔金额</span>
+            <input type="text" ng-regexp="number" ng-model="_case.rejected_amount" class="form-control">
+        </div>
+    </div>
+    <!--核减-->
+    <div class="col-xs-4" ng-show="_case.approval_result == 2">
+        <div class="input-group">
+            <span class="input-group-addon">审核核减类型</span>
+            <select class="form-control" ng-model="_case.check_subtract_type">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.check_subtract_type track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-4" ng-show="_case.approval_result == 2">
+        <div class="input-group">
+            <span class="input-group-addon">审核核减金额</span>
+            <input type="text" class="form-control" ng-regexp="number" ng-model="_case.check_subtract_amount"/>
+        </div>
+    </div>
+    <div class="col-xs-12" ng-show="_case.approval_result == 2">
+        <div class="input-group">
+            <span class="input-group-addon">核减内容</span>
+            <textarea class="form-control" rows="3" ng-model="_case.check_subtract_content"></textarea>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 pull-right">
+        <div class="input-group">
+            <span class="input-group-addon">审批经办人</span>
+            <label class="form-control" disabled>{{_case.approval_user}}</label>
+            <span class="input-group-addon">经办时间</span>
+            <label class="form-control" disabled>{{_case.approval_submit_time}}</label>
+        </div>
+    </div>
+</div>

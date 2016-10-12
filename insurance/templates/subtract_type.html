@@ -1,0 +1,15 @@
+﻿<div class='btn-group' ng-class='{open:open}'>
+    <button class='btn'>{{name}}</button>
+    <button class='btn dropdown-toggle' ng-click='open=!open'>
+        <span class='caret'></span>
+    </button>
+    <ul class='dropdown-menu' aria-labelledby='dropdownMenu'>
+        <li data-ng-repeat='val in options track by $index'>
+            <div class="input-group input-group-sm" style="padding: 3px 10px; min-width: 200px;">
+                    <span class="input-group-addon">{{val}}</span>
+                    <input type="text" class="form-control" ng-model="selected_items[val]" ng-blur="sum()" style="width: 70px;"/>
+                    <span data-ng-class='isChecked(selected_items[val])' style="line-height: 30px !important; padding-left: 8px;"></span>
+                </div>
+        </li>
+    </ul>
+</div>

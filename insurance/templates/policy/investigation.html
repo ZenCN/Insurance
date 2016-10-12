@@ -1,0 +1,74 @@
+﻿<div class="modal fade" id="investModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    调查表
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12" ng-hide="['report'].exist(state)">
+                        <div class="form-group">
+                            <span class="font">发起调查原因</span>
+                            <textarea class="form-control" rows="3" ng-model="investigation.investigation_cause"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" ng-show="['check','approval'].exist(state)">
+                        <div class="form-group">
+                            <span class="font">发往地区</span>
+                            <input type="text" class="form-control" ng-model="investigation.investigation_area"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-4" ng-show="['check','approval'].exist(state)">
+                        <div class="input-group">
+                            <span class="input-group-addon">联系人</span>
+                            <input type="text" class="form-control" ng-model="investigation.contact">
+                        </div>
+                    </div>
+                    <div class="col-xs-5" ng-show="['check','approval'].exist(state)">
+                        <div class="input-group">
+                            <span class="input-group-addon">联系电话</span>
+                            <input type="text" class="form-control" ng-model="investigation.contact_phone">
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="margin-top: 14px;" ng-show="['check','approval'].exist(state)">
+                        <div class="form-group">
+                            <span class="font">调查要点</span>
+                            <textarea class="form-control" rows="3" ng-model="investigation.survey_points"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" ng-show="['approval'].exist(state)">
+                        <div class="input-group">
+                            <span class="input-group-addon">是否同意</span>
+                            <div class="checkbox" style=" margin: 0;padding: 7px 0 10px 20px;height: 34px;border: 1px solid #ccc;border-radius: 5px;">
+                                <label>
+                                    <input type="radio" name="investigation" value="1" ng-model="investigation.approval_result"/> 是
+                                </label>
+                                <label>
+                                    <input type="radio" name="investigation" value="0" ng-model="investigation.approval_result"/> 否
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="margin-top: 14px;" ng-show="['approval'].exist(state)">
+                        <div class="form-group">
+                            <span class="font">备注</span>
+                            <textarea class="form-control" rows="3" ng-model="investigation.approval_remark"></textarea>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="fn.invest.save()">
+                    确定
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+        </div>
+    </div>
+</div>

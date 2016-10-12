@@ -1,0 +1,13 @@
+<div id="wrapper">
+    <header>
+        
+    </header>
+    <div id="page-wrapper" style="min-height: 561px; padding: 0;">
+        <div ui-view>
+            
+        </div>
+    </div>
+</div>
+<div ng-if="user.authority_level > 0" ng-include="'templates/update_password.html'">
+    
+</div>

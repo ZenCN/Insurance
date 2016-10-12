@@ -1,0 +1,53 @@
+﻿<div class="container-fluid b-space" style="padding-top: 15px;">
+    <div class="btn-group" style="margin-bottom: 15px;">
+        <div class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle"
+                    data-toggle="dropdown">
+                <i class="fa fa-save"></i>
+                保存
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="javascript:void(0)" ng-click="fn.save()">仅保存</a></li>
+                <li><a href="javascript:void(0)" ng-click="fn.save(true)">保存并提交</a></li>
+            </ul>
+        </div>
+        <!--<button type="button" class="btn btn-danger">
+            <i class="fa fa-rotate-left"></i>
+            重置
+        </button>-->
+        <button type="button" class="btn btn-info" ng-click="fn.invest.start()">
+            <i class="fa fa-calendar-check-o"></i>
+            发起调查
+        </button>
+    </div>
+    <ul class="nav nav-tabs" ng-init="active = 'record'">
+        <li ng-class="{active:active == 'report'}" ng-click="active = 'report'">
+            <a data-toggle="tab">
+                报案信息
+            </a>
+        </li>
+        <li ng-class="{active:active == 'record'}" ng-click="active = 'record'">
+            <a data-toggle="tab">
+                初录信息
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade" ng-class="{'in active':active == 'report'}" ng-if="active == 'report'">
+            <div class="panel panel-default" style="border-top: 0;">
+                <div class="panel-collapse">
+                    <div class="panel-body" ng-include="'templates/policy/report/main.html'"></div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" ng-class="{'in active':active == 'record'}" ng-if="active == 'record'">
+            <div class="panel panel-default" style="border-top: 0;">
+                <div class="panel-collapse">
+                    <div class="panel-body" ng-include="'templates/policy/record/main.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'templates/policy/investigation.html'"></div>

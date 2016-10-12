@@ -1,0 +1,26 @@
+﻿<div class="container-fluid b-space">
+    <div class="row" style="margin-top: 10px">
+        <div class="col-xs-5 col-xs-offset-3">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon">报案时间</span>
+                <input type="text" class="form-control" ng-datepicker ng-model="search.condition.report_time.start"/>
+                <span class="input-group-addon">至</span>
+                <input type="text" class="form-control" ng-datepicker ng-model="search.condition.report_time.end"/>
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-primary" ng-click="search.from_server()">搜索</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-body" id="chart_bt" style="height: 400px;">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

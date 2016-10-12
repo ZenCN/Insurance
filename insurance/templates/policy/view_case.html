@@ -1,0 +1,220 @@
+﻿<div class="modal fade" id="view_case" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 720px">
+        <div class="modal-content">
+            <div class="modal-body">
+                <table class="table table-condensed" style="margin: 0;">
+                    <tr ng-if="_case.view.current_state >= 1">
+                        <th colspan="6">报案信息（经办人：{{_case.view.report_user}}）</th>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 1">
+                        <td class="bg-gray">案件流水号</td>
+                        <td>{{_case.view.cid}}</td>
+                        <td class="bg-gray">是否报案</td>
+                        <td>{{_case.view.is_reported ? '是' : '否'}}</td>
+                        <td class="bg-gray">报案时间</td>
+                        <td>{{_case.view.report_time}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 1">
+                        <td class="bg-gray">保单号</td>
+                        <td>{{_case.view.policy_id}}</td>
+                        <td class="bg-gray">报案类型</td>
+                        <td>{{_case.view.report_type}}</td>
+                        <td class="bg-gray">报案人电话</td>
+                        <td>{{_case.view.report_phone}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 1">
+                        <td class="bg-gray">出险人姓名</td>
+                        <td>{{_case.view.insurant_name}}</td>
+                        <td class="bg-gray">身份证号码</td>
+                        <td colspan="3">{{_case.view.insurant_idcard}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 1">
+                        <td class="bg-gray">出险人电话</td>
+                        <td>{{_case.view.insurant_phone}}</td>
+                        <td class="bg-gray">出险人居住地</td>
+                        <td colspan="3">{{_case.view.insurant_habitation}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 1">
+                        <td class="bg-gray">出险时间</td>
+                        <td>{{_case.view.accident_time}}</td>
+                        <td class="bg-gray">出险地点</td>
+                        <td colspan="3">{{_case.view.accident_address}}</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-gray">投保单号</td>
+                        <td>{{_case.view.application_id}}</td>
+                        <td class="bg-gray">投保产品</td>
+                        <td colspan="2">{{_case.view.policy_type}}</td>
+                        <td></td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 1">
+                        <td colspan="2" class="bg-gray">二级以上公立医院</td>
+                        <td>{{_case.view.hospital_is_two_public ? '是' : '否'}}</td>
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 1">
+                        <td class="bg-gray">医院类型</td>
+                        <td colspan="2">{{_case.view.hospital_type}}</td>
+                        <td class="bg-gray">就诊医院</td>
+                        <td colspan="2">{{_case.view.hospital_name}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state == 1">
+                        <td class="bg-gray">事情经过和结果</td>
+                        <td colspan="5">{{_case.view.accident_details}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 2">
+                        <th colspan="6">初录信息（经办人：{{_case.view.record_user}}）</th>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 2">
+                        <td class="bg-gray">投保人</td>
+                        <td>{{_case.view.policy_holder}}</td>
+                        <td class="bg-gray">出险原因</td>
+                        <td>{{_case.view.accident_reason}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 2">
+                        <td class="bg-gray">受理类型</td>
+                        <td>{{_case.view.admissibility_type}}</td>
+                        <td class="bg-gray">理赔类型</td>
+                        <td colspan="2">{{_case.view.compensation_type}}</td>
+                        <td></td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 2">
+                        <td class="bg-gray">转账银行</td>
+                        <td>{{_case.view.transfer_bank}}</td>
+                        <td class="bg-gray">账户名</td>
+                        <td>{{_case.view.transfer_name}}</td>
+                        <td class="bg-gray">转账账号</td>
+                        <td>{{_case.view.transfer_account}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 2">
+                        <td class="bg-gray" colspan="2">资料是否齐全</td>
+                        <td>{{_case.view.is_data_holonomic > 0 ? '是' : '否'}}</td>
+                        <td ng-if="_case.view.is_data_holonomic > 0" colspan="3"></td>
+                        <td ng-if="_case.view.is_data_holonomic <= 0" class="bg-gray" colspan="2">是否已通知客户</td>
+                        <td ng-if="_case.view.is_data_holonomic <= 0">
+                            {{_case.view.is_informed > 0 ? '是' : '否'}}
+                        </td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 2 && _case.view.is_data_holonomic <= 0">
+                        <td class="bg-gray">备注</td>
+                        <td colspan="5">{{_case.view.data_remark}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 3">
+                        <th colspan="6">理算信息（经办人：{{_case.view.adjust_user}}）</th>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 3">
+                        <td class="bg-gray">住院天数</td>
+                        <td>{{_case.view.hospital_days}}</td>
+                        <td class="bg-gray">核减类型</td>
+                        <td>{{_case.view.subtract_type}}</td>
+                        <td class="bg-gray">核减金额</td>
+                        <td>{{_case.view.subtract_amount}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 3">
+                        <td class="bg-gray">发票金额</td>
+                        <td>{{_case.view.invoice_amount}}</td>
+                        <td class="bg-gray">理算金额</td>
+                        <td>{{_case.view.compensation_amount}}</td>
+                        <td class="bg-gray">免赔额</td>
+                        <td>{{_case.view.deductible_amount}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 3">
+                        <td class="bg-gray">备注</td>
+                        <td colspan="5">{{_case.view.adjustment_remark}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 4">
+                        <th colspan="6">审核信息（经办人：{{_case.view.check_user}}）</th>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 4">
+                        <td class="bg-gray" colspan="2">是否需要沟通</td>
+                        <td>
+                            {{_case.view.is_need_communication > 0 ? '是' : '否'}}
+                        </td>
+                        <td colspan="3" ng-if="_case.view.is_need_communication <= 0"></td>
+                        <td class="bg-gray" colspan="2" ng-if="_case.view.is_need_communication > 0">沟通结果</td>
+                        <td ng-if="_case.view.is_need_communication > 0">
+                            {{fn.query_name('communication_result', _case.view.communication_result)}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bg-gray" colspan="2">是否为疑难件</td>
+                        <td>
+                            {{_case.view.is_diffcult > 0 ? '是' : '否'}}
+                        </td>
+                        <td colspan="3" ng-if="_case.view.is_diffcult <= 0"></td>
+                        <td class="bg-gray" colspan="2" ng-if="_case.view.is_diffcult > 0">原因</td>
+                        <td ng-if="_case.view.is_diffcult > 0">
+                            {{_case.view.diffcult_reason}}
+                        </td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 4 && _case.view.is_need_communication > 0">
+                        <td class="bg-gray">沟通内容</td>
+                        <td colspan="5">
+                            {{_case.view.communication_content}}
+                        </td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 4">
+                        <td class="bg-gray">审核结果</td>
+                        <td>{{fn.query_name('check_result', _case.view.check_result)}}</td>
+                        <td colspan="4"></td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 4 && _case.view.check_result == 0">
+                        <td class="bg-gray">拒赔类型</td>
+                        <td colspan="2">
+                            {{_case.view.rejected_type}}
+                        </td>
+                        <td class="bg-gray">拒赔性质</td>
+                        <td colspan="2">
+                            {{_case.view.rejected_nature}}
+                        </td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 4 && _case.view.check_result == 0">
+                        <td class="bg-gray">拒赔原因</td>
+                        <td colspan="2">
+                            {{_case.view.rejected_reason}}
+                        </td>
+                        <td class="bg-gray">拒赔金额</td>
+                        <td colspan="2">
+                            {{_case.view.rejected_amount}}
+                        </td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 4 && _case.view.check_result == 2">
+                        <td class="bg-gray">审核核减类型</td>
+                        <td colspan="2">
+                            {{_case.view.check_subtract_type}}
+                        </td>
+                        <td class="bg-gray">审核核减金额</td>
+                        <td colspan="2">
+                            {{_case.view.check_subtract_amount}}
+                        </td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 4 && _case.view.check_result == 2">
+                        <td class="bg-gray">核减内容</td>
+                        <td colspan="5">
+                            {{_case.view.check_subtract_content}}
+                        </td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 4">
+                        <td class="bg-gray">审核意见</td>
+                        <td colspan="5">{{_case.view.check_opinion}}</td>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 5">
+                        <th colspan="6">审批信息（经办人：{{_case.view.approval_user}}）</th>
+                    </tr>
+                    <tr ng-if="_case.view.current_state >= 5">
+                        <td class="bg-gray">审批结果</td>
+                        <td>{{fn.query_name('approval_result', _case.view.approval_result)}}<td>
+                        <td colspan="4"></td>
+                    </tr>
+                </table>
+                                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

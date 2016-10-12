@@ -1,0 +1,156 @@
+﻿<div class="row" ng-include="'templates/policy/report_info.html'">
+
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <div class="input-group">
+            <div pre-selected="'正常件'" model="_case.case_type" options="field_values.case_type" name="'案件类型'" multi-select></div>
+        </div>
+    </div>
+    <div class="col-xs-12" ng-hide="_case.case_type == '正常件' || _case.case_type == ''">
+        <div class="input-group">
+            <span class="input-group-addon">
+                    <span>案件</span><br/><br/>
+                    <span>说明</span>
+                </span>
+            <textarea class="form-control" rows="3" ng-model="_case.case_type_remark"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon" ng-model="_case.hospital_name">就诊医院</span>
+            <input type="text" class="form-control" ng-model="_case.hospital_name">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">发票金额</span>
+            <input type="text" class="form-control" ng-regexp="number" ng-model="_case.invoice_amount">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">理赔类型</span>
+            <select class="form-control" ng-model="_case.compensation_type">
+                <option value="">-------</option>
+                <option ng-repeat="val in field_values.compensation_type track by $index">{{val}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">住院天数</span>
+            <input type="text" class="form-control" ng-regexp="number" ng-model="_case.hospital_days">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">免赔额</span>
+            <input type="text" class="form-control" ng-regexp="number" ng-model="_case.deductible_amount">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">理算金额</span>
+            <input type="text" class="form-control" ng-regexp="number" ng-model="_case.compensation_amount">
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <div model="_case.subtract_type" options="field_values.subtract_type" name="'核减类型'" subtract-type count="_case.subtract_amount"></div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">核减金额</span>
+            <input type="text" class="form-control" ng-regexp="number" ng-model="_case.subtract_amount">
+        </div>
+    </div>
+    <div class="col-xs-12" ng-show="_case.subtract_type.contains('其它')">
+        <div class="input-group">
+            <span class="input-group-addon">
+                    <span>核减</span><br/><br/>
+                    <span>说明</span>
+                </span>
+            <textarea class="form-control" rows="3" ng-model="_case.subtract_type_remark"></textarea>
+        </div>
+    </div>
+</div>
+<!--<div class="row">
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">资料是否齐全</span>
+            <div class="checkbox" style="margin: 0; padding: 7px 0 10px 8px; height: 34px; border: 1px solid #ccc; border-radius: 5px;">
+                <label>
+                    <input type="radio" name="is_data_holonomic" ng-model="_case.is_data_holonomic" value="1"/> 是
+                </label>
+                <label> $1$onclick="javascript:$('#data_modal').modal('show');"#1#
+                    <input type="radio" name="is_data_holonomic" ng-model="_case.is_data_holonomic" value="0"/> 否
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-5" ng-show="_case.is_data_holonomic <= 0">
+        <div class="input-group">
+            <span class="input-group-addon">是否已通知客户</span>
+            <div class="checkbox" style="margin: 0; padding: 7px 0 10px 8px; height: 34px; border: 1px solid #ccc; border-radius: 5px;">
+                <label>
+                    <input type="radio" name="is_informed" ng-model="_case.is_informed" value="1"/> 是
+                </label>
+                <label>
+                    <input type="radio" name="is_informed" ng-model="_case.is_informed" value="0"/> 否
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12" ng-show="_case.is_data_holonomic <= 0">
+        <div class="input-group">
+            <span class="input-group-addon">需补<br/><br/>资料</span>
+            <textarea class="form-control" rows="3" ng-model="_case.data_remark"></textarea>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <div class="input-group">
+            <span class="input-group-addon">是否为疑难件</span>
+            <div class="checkbox" style="margin: 0; padding: 7px 0 10px 8px; height: 34px; border: 1px solid #ccc; border-radius: 5px;">
+                <label>
+                    <input type="radio" name="is_diffcult" ng-model="_case.is_diffcult" value="1"/> 是
+                </label>
+                <label>
+                    <input type="radio" name="is_diffcult" ng-model="_case.is_diffcult" value="0"/> 否
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="clear-fix"></div>
+    <div class="col-xs-12" ng-show="_case.is_diffcult > 0">
+        <div class="input-group">
+            <span class="input-group-addon">原因</span>
+            <textarea class="form-control" rows="3" ng-model="_case.diffcult_reason"></textarea>
+        </div>
+    </div>
+</div>-->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="input-group">
+            <span class="input-group-addon">备注</span>
+            <textarea class="form-control" rows="3" cols="" ng-model="_case.adjustment_remark"></textarea>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 pull-right">
+        <div class="input-group">
+            <span class="input-group-addon">理算经办人</span>
+            <label class="form-control" disabled>{{_case.adjust_user}}</label>
+            <span class="input-group-addon">经办时间</span>
+            <label class="form-control" disabled>{{_case.adjust_submit_time}}</label>
+        </div>
+    </div>
+</div>

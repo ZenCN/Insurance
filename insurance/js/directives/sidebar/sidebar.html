@@ -1,0 +1,55 @@
+﻿<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav in" side-menu>
+            <li ng-if="user.authority_level > 0" ng-class="{active: collapse.tab == 'claim_process'}" ng-click="claim_process;collapse.tab = 'claim_process'">
+                <a href="javascript:void(0)" ng-click="collapse.claim_process = !collapse.claim_process" style="background-color: #f8f8f8">
+                    <i class="fa fa-files-o fa-fw"></i> 理赔流程<span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: !collapse.claim_process}">
+                    <li ui-sref-active="active" ng-class="{active: state == 'report'}" ng-if="user.authority_level >= 1">
+                        <a ng-if="user.authority_level == 1" ui-sref="policy.report"><i class="fa fa-files-o fa-fw"></i> 报案</a>
+                        <a ng-if="user.authority_level != 1" disabled><i class="fa fa-files-o fa-fw"></i> 报案</a>
+                    </li>
+                    <li ui-sref-active="active" ng-class="{active: state == 'record'}" ng-if="user.authority_level >= 2">
+                        <a ng-if="user.authority_level == 2" ui-sref="policy.record"><i class="fa fa-files-o fa-fw"></i> 初录</a>
+                        <a ng-if="user.authority_level != 2" disabled><i class="fa fa-files-o fa-fw"></i> 初录</a>
+                    </li>
+                    <li ui-sref-active="active" ng-class="{active: state == 'adjust'}" ng-if="user.authority_level >= 3">
+                        <a ng-if="user.authority_level == 3" ui-sref="policy.adjust"><i class="fa fa-files-o fa-fw"></i> 理算</a>
+                        <a ng-if="user.authority_level != 3" disabled><i class="fa fa-files-o fa-fw"></i> 理算</a>
+                    </li>
+                    <li ui-sref-active="active" ng-class="{active: state == 'check'}" ng-if="user.authority_level >= 4">
+                        <a ng-if="user.authority_level == 4" ui-sref="policy.check"><i class="fa fa-files-o fa-fw"></i> 审核</a>
+                        <a ng-if="user.authority_level != 4" disabled><i class="fa fa-files-o fa-fw"></i> 审核</a>
+                    </li>
+                    <li ui-sref-active="active" ng-class="{active: state == 'approval'}" ng-if="user.authority_level >= 5">
+                        <a ng-if="user.authority_level == 5" ui-sref="policy.approval"><i class="fa fa-files-o fa-fw"></i> 审批</a>
+                        <a ng-if="user.authority_level != 5" disabled><i class="fa fa-files-o fa-fw"></i> 审批</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-if="user.authority_level > 0" ng-class="{active: collapse.tab == 'comprehensive_query'}" ng-click="collapse.tab = 'comprehensive_query'">
+                <a href="javascript:void(0)" ng-click="collapse.comprehensive_query = !collapse.comprehensive_query" style="background-color: #f8f8f8">
+                    <i class="fa fa-files-o fa-fw"></i> 综合查询<span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: !collapse.comprehensive_query}">
+                    <li ui-sref-active="active" ng-if="user.authority_level > 0" ng-class="{active: state == 'general_query'}">
+                        <a ui-sref="policy.general_query"><i class="fa fa-files-o fa-fw"></i> 个案查询</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="user.authority_level > 0" ng-class="{active: state == 'details_query'}">
+                        <a ui-sref="policy.details_query"><i class="fa fa-files-o fa-fw"></i> 明细查询</a>
+                    </li>
+                    <li ui-sref-active="active" ng-if="user.authority_level > 0" ng-class="{active: state == 'statistics_query'}">
+                        <a ui-sref="policy.statistics_query"><i class="fa fa-files-o fa-fw"></i> 统计查询</a>
+                    </li>
+                </ul>
+            </li>
+            <li ui-sref-active="active" ng-if="user.authority_level == 0" ng-class="{active: state == 'user_manager'}">
+                <a ui-sref="policy.user_manager"><i class="fa fa-files-o fa-fw"></i> 用户管理</a>
+            </li>
+            <li ui-sref-active="active" ng-if="user.authority_level == 0" ng-class="{active: state == 'data_config'}">
+                <a ui-sref="policy.data_config"><i class="fa fa-files-o fa-fw"></i> 数据配置</a>
+            </li>
+        </ul>
+    </div>
+</div>
