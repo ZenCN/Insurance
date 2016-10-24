@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="app.js" />
+    <Content Include="back_up\insurance.sql" />
     <Content Include="css\dataTables.bootstrap.css" />
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
@@ -285,7 +286,6 @@
       <LastGenOutput>insurance.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="back_up\insurance_old.zip" />
-    <Content Include="back_up\insurance_sql_svr_2005.bak" />
     <Content Include="js\libs\angular\angular-animate.min.js.map" />
     <Content Include="js\libs\angular\angular-cookies.min.js.map" />
     <Content Include="js\libs\angular\angular-loader.min.js.map" />
